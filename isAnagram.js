@@ -1,5 +1,5 @@
 "use strict";
-// This has O(n) complexity
+// This has O(n) complexity where "n" is the length of the strings
 const isAnagram = (string1, string2) => {
     let stringfreq = {};
     let letter;
