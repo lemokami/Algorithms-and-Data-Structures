@@ -1,5 +1,7 @@
 "use strict";
 // This program has O(n) complexity where 'n' is the length of the string
+// Question: 👇🏻
+// Find the frequency of alphanumeric characters in the string
 const charCount = (str) => {
     let letter;
     let result = {};
