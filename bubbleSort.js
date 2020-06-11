@@ -1,4 +1,6 @@
 "use strict";
+//Question: Implement BubbleSort🔢
+//Complexity😱: Worst=>O(n^2); For nearly sorted array=> O(n)
 const swap = (array, index1, index2) => {
     [array[index1], array[index2]] = [array[index2], array[index1]];
 };
@@ -17,4 +19,5 @@ const bubbleSort = (arr) => {
     }
     return arr;
 };
-console.log(bubbleSort([9, 8, 7, 6, 5, 4, 3, 2, 1]));
+//Remark: Note that widely used as other sorting algorithms due to
+// its performance
