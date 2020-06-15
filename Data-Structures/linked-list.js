@@ -114,10 +114,18 @@ class SinglyLinkedList {
         return popnode.val;
     }
     reverse() {
-        let prevnode = this.head;
-        let nextnode = this.head.next;
         let currnode = this.head;
-        [this.head, this.tail] = [this.tail, this.head];
+        this.head = this.tail;
+        this.tail = currnode;
+        let prevnode = null;
+        let nextnode;
+        for (let i = 0; i < this.length; i++) {
+            nextnode = currnode.next;
+            currnode.next = prevnode;
+            prevnode = currnode;
+            currnode = nextnode;
+        }
+        return this;
     }
 }
 let mylist = new SinglyLinkedList();
@@ -127,3 +135,4 @@ mylist.push(3);
 mylist.push(4);
 mylist.push(5);
 mylist.push(6);
+console.log(mylist.reverse());
