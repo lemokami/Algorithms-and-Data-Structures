@@ -136,3 +136,10 @@ mylist.push(4);
 mylist.push(5);
 mylist.push(6);
 console.log(mylist.reverse());
+// Complexity:
+// Insertion: O(1)
+// Removal: O(1) or O(n) depends on which node to removed
+// Searching:  O(n)
+// Acessing: O(n)
+// Remark: LInked list is prefered for data that is inserted and deleted oftenly
+// and accessed or searched not that frequently
