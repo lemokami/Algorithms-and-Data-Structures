@@ -42,11 +42,26 @@ class DoublyLinkedList {
         this.length--;
         return popnode.val;
     }
+    shift() {
+        if (this.length === 0)
+            return undefined;
+        const shiftnode = this.head;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        }
+        else {
+            this.head = this.head.next;
+            this.head.prev = null;
+            shiftnode.next = null;
+        }
+        this.length--;
+        return shiftnode;
+    }
 }
 const mydoblist = new DoublyLinkedList();
 mydoblist.push(22);
 mydoblist.push(23);
-console.log(mydoblist.pop());
-console.log(mydoblist.pop());
-console.log(mydoblist.pop());
-console.log(mydoblist.pop());
+console.log(mydoblist.shift());
+mydoblist.push(24);
+console.log(mydoblist.shift());
