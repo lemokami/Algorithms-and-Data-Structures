@@ -1,5 +1,5 @@
 "use strict";
-class node {
+class dnode {
     constructor(val) {
         this.val = val;
         this.next = null;
@@ -13,7 +13,7 @@ class DoublyLinkedList {
         this.length = 0;
     }
     push(val) {
-        const newnode = new node(val);
+        const newnode = new dnode(val);
         if (!this.head || !this.tail) {
             this.head = newnode;
             this.tail = newnode;
@@ -59,7 +59,7 @@ class DoublyLinkedList {
         return shiftnode;
     }
     unshift(val) {
-        const newnode = new node(val);
+        const newnode = new dnode(val);
         if (this.length === 0) {
             this.head = newnode;
             this.tail = newnode;
@@ -107,7 +107,7 @@ class DoublyLinkedList {
         if (index === this.length)
             this.push(val);
         else {
-            const newnode = new node(val);
+            const newnode = new dnode(val);
             const prevnode = this.get(index - 1);
             const nextnode = prevnode.next;
             newnode.prev = prevnode;
