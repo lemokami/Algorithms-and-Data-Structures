@@ -37,3 +37,8 @@ class queue {
     }
 }
 const q = new queue();
+// Complexity:
+// Insertion: O(1)
+// Removal: O(1)
+// Searching:  O(n)
+// Acessing: O(n)
