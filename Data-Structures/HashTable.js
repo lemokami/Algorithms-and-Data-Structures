@@ -11,7 +11,6 @@ class HashTable {
             // multiplying by a prime number to make hash more unique🦄
         }
         hash = hash % this.values.length;
-        console.log(hash);
         return hash;
     }
     set(key, value) {
@@ -23,7 +22,6 @@ class HashTable {
     get(key) {
         const valindex = this._hash(key);
         const hashvalues = this.values[valindex];
-        console.log(hashvalues);
         if (hashvalues) {
             for (let arr of hashvalues) {
                 if (arr[0] === key)
@@ -36,6 +34,5 @@ class HashTable {
 const myHash = new HashTable(10);
 myHash.set("apple", "pie");
 myHash.set("banana", "shake");
-myHash.set("blubberry", "muffin");
+myHash.set("blueberry", "muffin");
 myHash.set("blueberry", "bomb");
-myHash.get("blueberry");
