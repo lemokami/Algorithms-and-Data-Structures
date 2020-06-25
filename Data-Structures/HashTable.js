@@ -1,4 +1,7 @@
 "use strict";
+// Implement a Hash Table
+// The following code is for a basic hash table.
+// This is just to show how a Hash table work
 class HashTable {
     constructor(size = 50) {
         this.maps = new Array((size = size));
@@ -54,9 +57,7 @@ class HashTable {
     }
 }
 const myHash = new HashTable(10);
-myHash.set("apple", "pie");
-myHash.set("banana", "shake");
-myHash.set("blueberry", "muffin");
-myHash.set("blueberry", "bomb");
-console.log(myHash.keys());
-console.log(myHash.values());
+//Complexity👌🏻 (Average):
+// Insertion: O(1)
+// Deletion: O(1)
+// Access: O(1)
