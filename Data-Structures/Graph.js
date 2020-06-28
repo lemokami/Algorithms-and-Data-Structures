@@ -70,6 +70,27 @@ class graph {
         }
         return result;
     }
+    BFS(start) {
+        if (!this.isvalid(start))
+            return null;
+        const queue = [start];
+        const visited = {};
+        const result = [];
+        let curr_vertex;
+        visited[start] = true;
+        while (queue.length) {
+            curr_vertex = queue.shift();
+            result.push(curr_vertex);
+            this.adjacencylist[curr_vertex].forEach((neighbour) => {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    queue.push(neighbour);
+                }
+            });
+        }
+        console.log(result);
+        return result;
+    }
 }
 const myG = new graph();
 myG.addVertex("A");
@@ -85,4 +106,4 @@ myG.addEdge("C", "E");
 myG.addEdge("D", "E");
 myG.addEdge("D", "F");
 myG.addEdge("E", "F");
-myG.iterativeDFS("A");
+myG.BFS("A");
