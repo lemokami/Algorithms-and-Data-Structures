@@ -34,14 +34,55 @@ class graph {
             delete this.adjacencylist[vertex];
         }
     }
+    recursiveDFS(start) {
+        if (!this.isvalid(start))
+            return null;
+        const vertices = [];
+        const traversed = {};
+        const walker = (vertex) => {
+            vertices.push(vertex);
+            traversed[vertex] = true;
+            for (let node of this.adjacencylist[vertex]) {
+                if (!traversed[node])
+                    walker(node);
+            }
+        };
+        walker(start);
+        return vertices;
+    }
+    iterativeDFS(start) {
+        if (!this.isvalid(start))
+            return null;
+        const result = [];
+        const stack = [start];
+        const visited = {};
+        let pvertex;
+        visited[start] = true;
+        while (stack.length) {
+            pvertex = stack.pop();
+            result.push(pvertex);
+            this.adjacencylist[pvertex].forEach((neighbour) => {
+                if (!visited[neighbour]) {
+                    visited[neighbour] = true;
+                    stack.push(neighbour);
+                }
+            });
+        }
+        return result;
+    }
 }
 const myG = new graph();
-myG.addVertex("apple");
-myG.addVertex("peach");
-myG.addVertex("banana");
-myG.addEdge("apple", "pie");
-myG.addEdge("banana", "pie");
-myG.addEdge("banana", "shake");
-myG.addEdge("peach", "juice");
-console.log(myG.adjacencylist);
-console.log(myG.adjacencylist);
+myG.addVertex("A");
+myG.addVertex("B");
+myG.addVertex("C");
+myG.addVertex("D");
+myG.addVertex("E");
+myG.addVertex("F");
+myG.addEdge("A", "B");
+myG.addEdge("A", "C");
+myG.addEdge("B", "D");
+myG.addEdge("C", "E");
+myG.addEdge("D", "E");
+myG.addEdge("D", "F");
+myG.addEdge("E", "F");
+myG.iterativeDFS("A");
